@@ -2,4 +2,122 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+	margin: 0 auto;
+	max-width: 90%;
+	width: 100%;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	padding: 20px 0;
+}
+
+.header::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 1px;
+	background-color: royalblue;
+}
+
+.main {
+	padding: 3rem 0;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	align-items: center;
+	justify-content: center;
+}
+
+.mem__block {
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2%;
+	position: relative;
+	cursor: pointer;
+	flex: 0 0 auto;
+}
+
+.mem__title {
+	color: blue;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	font-weight: 700;
+	text-transform: uppercase;
+	position: relative;
+}
+
+.mem__img {
+	height: 0;
+	transform: scale(0);
+	width: 50%;
+	object-fit: cover;
+	object-position: center;
+	transition: 0.5s;
+	display: flex;
+	margin: 10px auto 0;
+}
+
+.mem__radio {
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+
+.mem__top {
+	width: 100%;
+	position: relative;
+}
+
+.main:hover .mem__top::after {
+	content: url('./img/close.webp');
+	position: absolute;
+	right: 0;
+	top: 0;
+	transform: rotate(45deg);
+	transition: 0.2s;
+}
+
+.main:hover .mem__title {
+	color: black;
+}
+
+.mem__radio:checked+.mem__top>.mem__title {
+	color: black;
+}
+
+.mem__block:hover .mem__top .mem__img {
+	height: 100%;
+	transform: scale(1)
+}
+
+.mem__radio:checked+.mem__top>.mem__img {
+	height: 100%;
+	transform: scale(1)
+}
+
+.mem__radio:checked+.mem__top::after {
+	transform: rotate(0deg);
+	transition: 0.2s;
+}
+
+.footer__link {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: black;
+	padding: 1rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
